@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 12px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+               /* text-align: right;*/
+               padding: 10px;  
+            }
+            .title span {
+                color: #007cae;
+            }
+            .skufront{
+            font-size: 12px;
+            width:100px;
+            }
+             .bnd{
+            font-size: 12px;
+            width:100px;
+            }
+            .tblength{
+                width:350px;
+                font-size: 12px;
+            }
+            .nameclass{
+                 font-size: 20px;
+                 margin:0px;
+                 padding:0px;
+            }
+            .name2{
+                 margin:0px;
+                 padding:0px;
+            }
+             .name3{   
+                text-align: right !important;
+                
+            }
+            .tbqt{
+                 width:40px;
+                
+            }
+            .tbpp{
+                 width:60px;
+            }
+            .para{
+                padding-top:0px;
+                margin-top:0px;
+            }
+            
+            .product {
+                text-align: center;
+                padding-top:2px;
+            }
+            .theader{
+                font-weight:bolder;
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+            .back{
+                background-image: url('{{"img/logo_watermark.png"}}'); 
+
+            }
+        </style>
+
+    </head>
+    <body>
+         <div class='wrapper'>
+            <div class='header'>
+                <p class='title'>Product Purchase Report  </p>
+
+
+          
+          </div>
+            <div >
+                <p class="nameclass"> {{company.name}} </p>
+                <p class="name2"> {{company.address}} </p>
+                <p class="name2"> {{company.phone}} </p>
+               
+                   <p class="name2"> Date:  {{company.date}} </p>                
+            </div>
+
+    
+            <div class = "product">
+            <table border="1" >
+            <tr class="theader">
+            <td>SKU M-1234</td>
+            <td>PRODUCT NAME</td>
+            <td> BRAND</td>
+            <td>QTY</td>
+            <td>P-PRICE</td>
+            <td>S-PRICE</td>
+            <td>DIS</td>
+            </tr>
+
+            {% for information in report %}
+                {% for info in information %}
+                    <tr class="back">
+                    <td class="skufront">{{ info.product_sku }}</td>
+                    <td class="tblength">{{ info.product_name }}</td>
+                    <td class="bnd">{{ info.product_brand }}</td>
+                    <td class="tbqt">{{ info.credit_sum }}</td>
+                    <td class="tbpp" >{{ info.purchase_price }}</td>
+                    <td class="tbpp" >{{ info.selling_price }}</td>   
+                    <td class="tbpp" >{{ info.discount }}</td>   
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+           
+            </table>   
+             <p> Last One  </p>
+            </div>
+
+         </div>
+     <div>
+           
+        
+        <script src="" async defer></script>
+    </body>
+</html>
+
+

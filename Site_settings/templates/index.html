@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            @page {
+                    size: a4 portrait;
+                    @frame header_frame {           /* Static Frame */
+                        -pdf-frame-content: header_content;
+                        
+                
+                        left: 50pt; width: 512pt; top: 50pt; height: 40pt;
+                        font-size:24px !important;
+                        
+                    }
+                    @frame content_frame {          /* Content Frame */
+                        left: 50pt; width: 512pt; top: 90pt; height: 632pt;
+                  
+                    }
+                    @frame footer_frame {           /* Another static Frame */
+                        -pdf-frame-content: footer_content;
+                        left: 50pt; width: 512pt; top: 772pt; height: 20pt;
+                    }
+                }
+            body {
+                font-weight: 150;
+                font-size: 12px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+               /* text-align: right;*/
+               padding: 10px 20px 0px 20px;  
+            }
+            .title span {
+                color: #007cae;
+            }
+           
+            .skufront{
+            font-size: 12px;
+            width:60px;
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .nameclass{
+                 font-size: 20px;
+                 margin:0px;
+                 padding:0px;
+            }
+            .name2{
+                 margin:0px;
+                 padding:0px;
+            }
+             .name3{   
+                text-align: right !important;
+                
+            }
+            .product {
+                text-align: center;
+                padding-top:2px;
+            }
+            .pname{
+                width:420px;
+                font-size: 12px;
+            }
+             .theader{
+                font-weight:bolder;
+            }
+            .pband{
+            font-size: 12px;
+            width:150px;
+            }
+            .paq{
+                width:60px;
+                font-size: 12px;
+            }
+            .he{
+                font-size:24px;
+                
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+        </style>
+
+    </head>
+    <body>
+    <div class='title' align="center">
+ <h3 >Product Report  </h3>  
+    </div>
+
+                         
+    <div id="header_content" >  
+   
+    
+  {{company.name}} </br>
+    Date:{{company.date}}
+ 
+     </div>
+  
+      
+
+    <!-- Content for Static Frame 'footer_frame' -->
+    <div id="footer_content" align="center">
+        {{company.address}}
+         {{company.phone}}
+    </div>
+
+   
+   <div class = "product">
+          
+            <table border="1"  align="center">
+            <tr CLASS="theader">
+            <td>ID</td>
+            <td>PRODUCT NAME</td>
+            <td> BRAND</td>
+            <td>NO.SPEC </td>
+            </tr>
+
+           
+            {% for info in report %}
+                    <tr>
+                    <td class="skufront">{{ info.id }}</td>
+                    <td class="pname" >{{ info.title }}</td>
+                    <td class="pband">{{ info.brand }}</td>
+                    <td class="paq">{{ info.specific_status }}</td>
+                   
+                    </tr>
+            {% endfor %}
+            </table>   
+    
+</div>
+    
+        
+       
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
