@@ -42,6 +42,10 @@ Pillow==8.0.1
 psycopg2==2.8.6
 PyJWT==1.7.1
 PyPDF2==1.26.0
+pytest
+pytest-django
+pytest-xdist   
+pytest-mock  
 python-barcode==0.13.1
 python-bidi==0.4.2
 python-dateutil==2.8.1
